@@ -182,11 +182,11 @@ bool sendRedPacket(const GroupMessageData &data) {
         // 赏#10#测试红包#领取人QQ
         const auto args = splitString(text_get_right(data.content, "赏#"), '#');
         // 红包金额
-        const auto amount = static_cast<int32_t>(str2ll(args[1]));
+        const auto amount = static_cast<int32_t>(str2ll(args[0]));
         // 红包文本
-        const auto &bless = args[2].c_str();
+        const auto &bless = args[1].c_str();
         // 领取人QQ
-        auto qq = args[3];
+        auto qq = args[2];
         replaceAll(qq, "[@", "");
         replaceAll(qq, "]", "");
         replaceAll(qq, " ", "");
