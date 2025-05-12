@@ -279,8 +279,8 @@ XLZ int OnGroup(const int32_t data_ptr) {
                             std::to_string(currentCount + 1));
         } else {
             const std::string errorPublic = TextCode::atUser(senderQQ, true) + "红包发送失败";
-            const std::string errorPrivate = "红包发送失败：" + utf82gbk(json["retmsg"].get<std::string>() + "\n" +
-                                                                  "支付密码：" + paymentPassword);
+            const std::string errorPrivate = "红包发送失败：" + utf82gbk(json["retmsg"].get<std::string>() + "\n")
+                                                                                + "支付密码：" + paymentPassword;
             Api.SendGroupMessage(frameworkQQ, groupNumber, errorPublic.c_str());
             Api.SendPrivateMessage(frameworkQQ, masterQQ, errorPrivate.c_str());
         }
